@@ -68,7 +68,7 @@ class App extends Component {
 		const { isLoading, isAlert, users } = this.state;
 		return (
 			<Fragment>
-				<Router basename={process.env.PUBLIC_URL}>
+				<Router>
 					<Header />
 					<Switch>
 						<Route

@@ -6,7 +6,7 @@ const Header = () => {
 			<nav className='navbar'>
 				<div className='left_part'>
 					<Link to='/'>
-						<i class='fa fa-github mr-1' aria-hidden='true' />GithubReact
+						<i className='fa fa-github mr-1' aria-hidden='true' />GithubReact
 					</Link>
 				</div>
 				<div className='right_part'>

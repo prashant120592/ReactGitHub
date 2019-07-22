@@ -12,7 +12,8 @@ class App extends Component {
 	state = {
 		isLoading: false,
 		isAlert: false,
-		users: []
+		users: [],
+		user: {}
 	};
 
 	setAlert = () => {
@@ -64,8 +65,15 @@ class App extends Component {
 			this.setState({ isLoading: false, users: [], isAlert: { msg: error.message } });
 		}
 	};
+	getUser = async (username) => {
+		this.setState({ isLoading: true });
+		const UserDetail = await fetch(`https://api.github.com/users/${username}`);
+		const user = await UserDetail.json();
+		this.setState({ user, isLoading: false });
+	};
+
 	render() {
-		const { isLoading, isAlert, users } = this.state;
+		const { isLoading, isAlert, users, user } = this.state;
 		return (
 			<Fragment>
 				<Router basename={process.env.PUBLIC_URL}>
@@ -91,7 +99,13 @@ class App extends Component {
 						/>
 						<Route exact path='/about' component={About} />
 						<Route exact path='/contact' component={ContactUs} />
-						<Route exact path='/profile' component={Profile} />
+						<Route
+							exact
+							path='/profile/:username'
+							render={(props) => (
+								<Profile {...props} getUser={this.getUser} user={user} isLoading={isLoading} />
+							)}
+						/>
 					</Switch>
 					<Footer />
 				</Router>

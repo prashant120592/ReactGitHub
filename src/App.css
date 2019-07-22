@@ -40,3 +40,20 @@ footer {
 .resetbtn {
 	margin-left: 10px;
 }
+a.view_details_link {
+	padding: 8px 14px;
+	color: #fff;
+	background: #000;
+	border-radius: 7px;
+	display: inline-block;
+	margin-bottom: 12px;
+	font-size: 12px;
+}
+.inner_desc {
+	margin-top: 15px;
+	font-size: 22px;
+	font-weight: bold;
+}
+.goback {
+	margin-top: 10px;
+}
